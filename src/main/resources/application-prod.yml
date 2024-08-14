@@ -4,9 +4,9 @@ spring:
   # DataSource Config
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://117.72.86.16:3306/kyapi
+    url: jdbc:mysql://117.72.XX.XX:3306/kyapi
     username: kyapi
-    password: sMiRCcStKGYNWYnr
+    password: XXXXXX
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
@@ -23,7 +23,7 @@ server:
   port: 8890
   ssl:
     key-store: classpath:cert/cert-2408076956bd1a5a1ee75f_www.wenkaiyu.top_TOMCAT.pfx
-    key-store-password: k75d67Ad2LHe2229
+    key-store-password: AXXXXXXX
   servlet:
     context-path: /api
     session:
@@ -64,10 +64,10 @@ dubbo:
 wx:
   miniapp:
     configs:
-      - appid: wx889cdcce147e13a6 #微信小程序的appid 横杠表示可以配置多个小程序
-        secret: 56f2956e1b0be20125cfb4c775eff795 #微信小程序的Secret
-        token: kaiyu #微信小程序消息服务器配置的token
-        aesKey: rSIBJQxc44GSNsoN5nz5Gr2gAnESMNvc1swvBIuSSFw #微信小程序消息服务器配置的EncodingAESKey
+      - appid: XXXXXXXXXX #微信小程序的appid 横杠表示可以配置多个小程序
+        secret: XXXXXXXXXXXX #微信小程序的Secret
+        token: XXXXXXXXXX #微信小程序消息服务器配置的token
+        aesKey: XXXXXXXXXXXX #微信小程序消息服务器配置的EncodingAESKey
         msgDataFormat: JSON
 aliyun:
   oss:
