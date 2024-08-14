@@ -1,0 +1,79 @@
+spring:
+  application:
+    name: kyapi-backend
+  # DataSource Config
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://117.72.86.16:3306/kyapi
+    username: kyapi
+    password: sMiRCcStKGYNWYnr
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  # session 失效时间（分钟）
+  session:
+    timeout: 86400
+    store-type: redis
+  # redis 配置
+  redis:
+    port: 6379
+    host: localhost
+    database: 0
+server:
+  port: 8890
+  ssl:
+    key-store: classpath:cert/cert-2408076956bd1a5a1ee75f_www.wenkaiyu.top_TOMCAT.pfx
+    key-store-password: k75d67Ad2LHe2229
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        max-age: 2592000
+        domain: www.wenkaiyu.top
+          # 这样写就跨域写入到 session 之中了
+        same-site: none
+          # 必须是 https 才能设置 可以用 Ohttps 配合 Nginx 实现
+        secure: true
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+kyapi:
+  client:
+    access-key: kaiyu
+    secret-key: abcdefgh
+dubbo:
+  application:
+    # 设置应用的名称
+    name: dubbo-springboot-demo-provider
+  # 指定使用 Dubbo 协议，且端口设置为 -1，表示随机分配可用端口
+  protocol:
+    name: dubbo
+    port: 22221
+  registry:
+    # 配置注册中心为 Nacos，使用的地址是 nacos://localhost:8848
+    id: nacos-registry
+    address: nacos://172.16.0.3:8848
+
+wx:
+  miniapp:
+    configs:
+      - appid: wx889cdcce147e13a6 #微信小程序的appid 横杠表示可以配置多个小程序
+        secret: 56f2956e1b0be20125cfb4c775eff795 #微信小程序的Secret
+        token: kaiyu #微信小程序消息服务器配置的token
+        aesKey: rSIBJQxc44GSNsoN5nz5Gr2gAnESMNvc1swvBIuSSFw #微信小程序消息服务器配置的EncodingAESKey
+        msgDataFormat: JSON
+aliyun:
+  oss:
+    file:
+      endpoint: xxxxxxxxxx
+      keyid: xxxxxxxxxxxxxx
+      keysecret: xxxxxxxxxxxxxx
+      bucketname: xxxxxxxxxxxxxx
+

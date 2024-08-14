@@ -1,0 +1,3 @@
+# springboot starter
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.kaiyu.kyapiclientsdk.kyapiClientConfig

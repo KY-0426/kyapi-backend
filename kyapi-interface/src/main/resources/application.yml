@@ -1,0 +1,49 @@
+server:
+  port: 8123
+  tomcat:
+    remoteip:
+      remote-ip-header: x-forward-for
+    uri-encoding: UTF-8
+    threads:
+      max: 10
+    background-processor-delay: 30
+
+  ssl:
+    key-store: classpath:cert/cert-2408076956bd1a5a1ee75f_www.wenkaiyu.top_TOMCAT.pfx
+    key-store-password: 8b90pM942o8shr15
+    key-store-type: PKCS12
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        max-age: 2592000
+        domain: www.wenkaiyu.top
+        # 这样写就跨域写入到 session 之中了
+        same-site: none
+        # 必须是 https 才能设置 可以用 Ohttps 配合 Nginx 实现
+        secure: true
+custom:
+  http-port: 18123
+
+kyapi:
+  client:
+    access-key: kaiyu
+    secret-key: abcdefgh
+
+yuapi:
+  client:
+    access-key: us5m877q0dhz4wjyqwoopcz2ghel9dqz
+    secret-key: 5gpkcs2uhlp0g5v1bayridfl1ies73dp
+
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+
+knife4j:
+  config:
+    scan-path: com.kaiyu.kyapiinterface.controller
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
